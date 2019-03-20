@@ -24,12 +24,12 @@ func NewNI() *NetworkInfo {
 	return ni
 }
 
-//Return the NAT type according its Internal IP and Public IP
+//UseNAT returns the NAT type according its Internal IP and Public IP
 func (n *NetworkInfo) UseNAT() bool {
 	return n.IIPv4 == n.EIPv4 && n.IPort == n.EPort
 }
 
-//Check each NAT type and make sure if it is under the same routing.
+//ValidToP2P checks each NAT type and make sure if it is under the same routing.
 //Return "true" if it is not NAT_Symmetric
 func (n *NetworkInfo) ValidToP2P(si *NetworkInfo) bool {
 	return si != nil
